@@ -1,0 +1,92 @@
+while True:
+    print("1: Sets 2: Lists 3: Exit")
+    choice = int(input("Select your option: "))
+
+    if choice == 1:  # Sets
+        s1 = set(input('Enter set1 (comma-separated): ').split(','))
+        s2 = set(input('Enter set2 (comma-separated): ').split(','))
+
+        while True:
+            print("1: Union 2: Intersection 3: Difference 4: Symmetric Difference 5: Subset 6: Superset 7: Add  8: Remove  9: Clear Set 10: pop")
+            op = int(input("Enter operation: "))
+
+            if op == 1:
+                print("Union:", s1.union(s2))
+            elif op == 2:
+                print("Intersection:", s1.intersection(s2))
+            elif op == 3:
+                print("Difference:", s1.difference(s2))
+            elif op == 4:
+                print("Symmetric Difference:", s1.symmetric_difference(s2))
+            elif op == 5:
+                print("Is Subset:", s1.issubset(s2))
+            elif op == 6:
+                print("Is Superset:", s1.issuperset(s2))
+            elif op == 7:
+                elem = input("Enter element to add: ")
+                s1.add(elem)
+                print("Element added to set1:", s1)
+            elif op == 8:
+                elem = input("Enter element to remove: ")
+                s1.discard(elem)
+                print("Element removed from set1:", s1)
+            elif op == 9:
+                s1.clear()
+                print("Set1 cleared:", s1)
+            elif op == 10:
+                print(s2)
+                s1.pop()
+                print(s2)
+            else:
+                print("Invalid choice.")
+                break
+    elif choice == 2:  # Lists
+        l1 = input('Enter list1 (comma-separated): ').split(',')
+        l2 = input('Enter list2 (comma-separated): ').split(',')
+
+        while True:
+            print("1: Concatenate  2: Element at Index 3: del l1 4: reverse 5: pop 6: append 7: len  8: clear  9: extend  10: count")
+            op = int(input("Enter operation: "))
+
+            if op == 1:
+                print("Concatenation:", l1 + l2)
+            elif op == 2:
+                index = int(input("Enter index to get element: "))
+                print("Element at index:", l1[index] if index < len(l1) else "Index out of range")
+            elif op == 3:
+                del l1
+                print("l1 deleted")
+            elif op == 4:
+                l2.reverse()
+                print("Reversed list1:", l2)
+
+            elif op == 5:
+                l2.pop()
+                print(l1)
+
+            elif op == 6:
+                elem = input("Enter element to append: ")
+                l2.append(elem)
+                print("Element appended to list1:", l2)
+            elif op == 7:
+                print("Length of list1:", len(l2))
+            elif op == 8:
+                l2.sort()
+                print("Sorted list1:", l2)
+            elif op == 9:
+                element = input("Enter element to count occurrences: ")
+                print("Occurrences in list1:", l2.count(element))
+            elif op == 10:
+                l2.clear()
+                print("L2 cleared")
+
+
+
+            else:
+                print("Invalid choice. Please try again.")
+                break
+    elif choice == 3:
+        break
+
+    else:
+        print("Invalid choice.")
