@@ -1,0 +1,38 @@
+class Student:
+    def _init_(self, usn, name, age):
+        self.usn = usn
+        self.name = name
+        self.age = age
+
+class UGStudent(Student):
+    def _init_(self, usn, name, age, semester, fees):
+        super()._init_(usn, name, age)
+        self.semester = semester
+        self.fees = fees
+
+class PGStudent(Student):
+    def _init_(self, usn, name, age, semester, fees, stipend):
+        super()._init_(usn, name, age)
+        self.semester = semester
+        self.fees = fees
+        self.stipend = stipend
+
+# Test cases
+ug_student = UGStudent("UG123", "John", 20, 5, 50000)
+pg_student = PGStudent("PG456", "Alice", 25, 3, 60000, 20000)
+
+# Displaying details
+print("UG Student Details:")
+print("USN:", ug_student.usn)
+print("Name:", ug_student.name)
+print("Age:", ug_student.age)
+print("Semester:", ug_student.semester)
+print("Fees:", ug_student.fees)
+
+print("\nPG Student Details:")
+print("USN:", pg_student.usn)
+print("Name:", pg_student.name)
+print("Age:", pg_student.age)
+print("Semester:", pg_student.semester)
+print("Fees:", pg_student.fees)
+print("Stipend:", pg_student.stipend)
