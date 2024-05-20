@@ -1,0 +1,27 @@
+import time
+
+# Decorator function to measure the execution time of a function
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"Time taken by {func._name_}: {end_time - start_time} seconds")
+        return result
+    return wrapper
+
+# Generator function to generate Fibonacci series
+def fibonacci_generator(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+@measure_time
+def generate_fibonacci_series(n):
+    for fib in fibonacci_generator(n):
+        print(fib)
+
+# Test the program
+n = 5
+generate_fibonacci_series(n)
